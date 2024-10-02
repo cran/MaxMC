@@ -9,8 +9,8 @@ get_control(method, control = list())
 \arguments{
 \item{method}{A character string. Type of algorithm to be
 used for global optimization. The four available methods
-are simulated annealing (\code{\link{GenSA}}), particle swarm (\code{\link{pso}}),
-genetic algorithm (\code{\link{GA}}), and grid search (\code{\link{gridSearch}})
+are simulated annealing (\code{\link[GenSA]{GenSA}}), particle swarm (\code{\link[pso]{psoptim}}),
+genetic algorithm (\code{\link[GA]{GA}}), and grid search (\code{\link[NMOF]{gridSearch}})
 Default is \code{GenSA},}
 
 \item{control}{A list. Arguments to be used to control the
@@ -23,16 +23,5 @@ of the algorithm chosen in \code{method}.
 \description{
 This function provides a way to merge the user specified controls for the
 optimization methods with their respective default controls.
-}
-\examples{
-# Select method
-method = "GenSA"
-
-# Select control to modify and store in a list
-control = list(maxit = 100)
-
-# Get all controls for the method specify
-MaxMC:::get_control(method = method, control = control)
-
 }
 \keyword{internal}

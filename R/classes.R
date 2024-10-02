@@ -1,8 +1,3 @@
-#' S3 class \code{mmc}.
-#'
-#' @exportClass mmc
-#
-
 #' S3 class \code{mmc} object generating function
 #'
 #' @param call An object of class \code{call}. Original call to \code{mmc}
@@ -16,7 +11,6 @@
 #' @inheritParams mmc
 #' @inheritParams pvalue
 #'
-#' @example /inst/examples/return_mmc_example.R
 #'
 #' @keywords internal
 #'
@@ -49,11 +43,6 @@ return_mmc <- function(S0, y, statistic, dgp, est, lower, upper, N, type,
     return(out)
 }
 
-#' S3 class \code{mc}.
-#'
-#' @exportClass mc
-#
-
 #' S3 class \code{mc} object generating function
 #' @param pval An atomic vector. Monte Carlo p-value of \code{statistic}
 #'
@@ -61,7 +50,6 @@ return_mmc <- function(S0, y, statistic, dgp, est, lower, upper, N, type,
 #' @inheritParams return_mmc
 #' @inheritParams pvalue
 #'
-#' @example /inst/examples/return_mc_example.R
 #'
 #' @keywords internal
 #'

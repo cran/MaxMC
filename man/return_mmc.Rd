@@ -2,10 +2,27 @@
 % Please edit documentation in R/classes.R
 \name{return_mmc}
 \alias{return_mmc}
-\title{S3 class \code{mmc}.}
+\title{S3 class \code{mmc} object generating function}
 \usage{
-return_mmc(S0, y, statistic, dgp, est, lower, upper, N, type, method,
-  alpha, control, call, seed, lmc, opt_result, opt_trace)
+return_mmc(
+  S0,
+  y,
+  statistic,
+  dgp,
+  est,
+  lower,
+  upper,
+  N,
+  type,
+  method,
+  alpha,
+  control,
+  call,
+  seed,
+  lmc,
+  opt_result,
+  opt_trace
+)
 }
 \arguments{
 \item{S0}{An atomic vector. Value of the test statistic
@@ -44,8 +61,8 @@ the p-value function produces. The possible values are
 
 \item{method}{A character string. Type of algorithm to be
 used for global optimization. The four available methods
-are simulated annealing (\code{\link{GenSA}}), particle swarm (\code{\link{pso}}),
-genetic algorithm (\code{\link{GA}}), and grid search (\code{\link{gridSearch}})
+are simulated annealing (\code{\link[GenSA]{GenSA}}), particle swarm (\code{\link[pso]{psoptim}}),
+genetic algorithm (\code{\link[GA]{GA}}), and grid search (\code{\link[NMOF]{gridSearch}})
 Default is \code{GenSA},}
 
 \item{alpha}{An atomic vector. If \code{mmc} finds a
@@ -69,34 +86,6 @@ of class \code{mc} corresponding the Local Monte Carlo test.}
 \item{opt_trace}{An object returning the optimization results.}
 }
 \description{
-S3 class \code{mmc}.
-}
-\examples{
-# Generate typical data found inside the function mmc()
-S0 <-  0
-y <-  rnorm(100)
-statistic <-  function(y, v) mean(y) * v
-dgp <-  function(y, v) sample(y, replace = TRUE)
-est <- 1
-lower <- -1
-upper <- 1
-N <-  99
-type <-  "geq"
-method <- "GenSA"
-alpha <- 0.05
-control <- MaxMC:::get_control(method)
-call <- call("mc",y= y, statistic = statistic, dgp = dgp, N = 99, type = type)
-seed <-  NULL
-lmc <- list(pval = 0.10)
-pval <-  0.65
-opt_result <- list(value = 0.10)
-opt_trace  <- as.data.frame(matrix(data = NA, control$maxit, 3,
-                                   dimnames = list(NULL,c("ite","pval","max"))))
-
-# Combine data and return it as an object of class 'mmc'
-MaxMC:::return_mmc(S0 = S0, y = y, statistic = statistic, dgp = dgp, est = est, lower = lower,
-                   upper = upper, N = N, type = type, method = method, alpha = alpha,
-                   control = control, call = call, seed = seed, lmc = lmc,
-                   opt_result = opt_result, opt_trace = opt_trace)
+S3 class \code{mmc} object generating function
 }
 \keyword{internal}

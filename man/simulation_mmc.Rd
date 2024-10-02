@@ -4,8 +4,14 @@
 \alias{simulation_mmc}
 \title{Maximized Monte Carlo Simulation}
 \usage{
-simulation_mmc(y, statistic, dgp = function(y, v) sample(y, replace =
-  TRUE), v, N = 99, ...)
+simulation_mmc(
+  y,
+  statistic,
+  dgp = function(y, v) sample(y, replace = TRUE),
+  v,
+  N = 99,
+  ...
+)
 }
 \arguments{
 \item{y}{A vector or data frame.}
@@ -36,17 +42,5 @@ The vector of replication of test statistic.
 }
 \description{
 Generates N Monte Carlo replicates of a statistic for given nuisance parameter value.
-}
-\examples{
-# Generate some data
-y = rnorm(10)
-
-# Specify statistic and DGP
-statistic = function(x) mean(x)
-dgp = function(y, v) sample(y, replace = TRUE)
-
-# Simulate statistic N times
-MaxMC:::simulation_mmc(y, statistic = statistic, dgp = dgp, v = 1, N = 99)
-
 }
 \keyword{internal}
